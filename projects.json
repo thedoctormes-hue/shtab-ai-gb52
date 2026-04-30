@@ -1,42 +1,12 @@
 {
-  "projects": {
-    "@MSKgastroDigestbot": {
-      "type": "Telegram-бот для дайджестов",
-      "stack": "Python, aiogram",
-      "deploy": "systemctl restart mskgastrodigestbot",
-      "logs": "/root/LabDoctorM/@MSKgastroDigestbot/logs/"
-    },
-    "AiderDMrobot": {
-      "type": "Telegram-бот AI-ассистент (памятник)",
-      "stack": "Python, python-telegram-bot",
-      "deploy": "systemctl restart aiderdm",
-      "backup": "AiderDMrobot_backup_20260425_010706/"
-    },
-    "VPNDaemonRobot": {
-      "type": "VPN-бот (Xray/VLESS+Reality)",
-      "stack": "Python, aiogram 3.x, Xray-core",
-      "deploy": ["systemctl restart demonvpn", "systemctl restart demonvpn-bot", "systemctl restart vpn-florida"],
-      "logs": "/root/LabDoctorM/VPNDaemonRobot/logs/",
-      "status": "Active ✅"
-    },
-    "Protocol": {
-      "type": "Система личной памяти с ИИ-классификацией",
-      "stack": "Python, FastAPI, aiogram, SQLite FTS5",
-      "deploy": "systemctl restart protocol-bot",
-      "logs": "journalctl -u protocol-bot -f",
-      "status": "Спринт 2 ЗАВЕРШЁН ✅"
-    },
-    "LLMevangelist": { "type": "LLM-проект", "stack": "Python" },
-    "eva_forewa_bot": { "type": "Telegram-бот", "stack": "Python + aiogram" },
-    "MailDaemonRobot": { "type": "Почтовый бот", "stack": "Python + aiogram" },
-    "stenographerobot": { "type": "Стенография/транскрибация", "stack": "Python + aiogram" }
-  },
-  "venv": "/root/LabDoctorM/venv/",
-  "global_rules": {
-    "stack": "Python (aiogram, FastAPI), React",
-    "venv_setup": "/root/LabDoctorM/venv/bin/pip install -r requirements.txt",
-    "services": "/etc/systemd/system/",
-    "logs_cmd": "journalctl -u <service-name> -f",
-    "deploy_check": "README → ## Deploy в QWEN.md проекта"
-  }
+  "projects": [
+    {"name": "@MSKgastroDigestbot", "path": "/root/LabDoctorM/@MSKgastroDigestbot/", "priority": 1},
+    {"name": "AiderDMrobot", "path": "/root/LabDoctorM/AiderDMrobot/", "priority": 2},
+    {"name": "VPNDaemonRobot", "path": "/root/LabDoctorM/VPNDaemonRobot/", "priority": 1},
+    {"name": "Protocol", "path": "/root/LabDoctorM/Protocol/", "priority": 1},
+    {"name": "LLMevangelist", "path": "/root/LabDoctorM/LLMevangelist/", "priority": 3},
+    {"name": "eva_forewa_bot", "path": "/root/LabDoctorM/eva_forewa_bot/", "priority": 2},
+    {"name": "MailDaemonRobot", "path": "/root/LabDoctorM/MailDaemonRobot/", "priority": 3},
+    {"name": "stenographerobot", "path": "/root/LabDoctorM/stenographerobot/", "priority": 3}
+  ]
 }

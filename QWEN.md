@@ -9,12 +9,10 @@
 
 // @see projects.json для списка проектов
 
-## Глобальные правила
-1. Читай QWEN.md в корне и в папке проекта перед работой
-2. Мелкие задачи — сразу делай. Сложные — `/plan`
-3. Ошибки — сразу фиксим
-4. Деплой — инструкции в `## Deploy` в QWEN.md проекта
-5. Тесты: `pytest` для Python, `npm test` для React
+## Deploy
+- **Python**: `cd /root/LabDoctorM/<project> && systemctl restart <service>`
+- **React**: `npm run build && rsync -av dist/ /var/www/<project>/`
+- **.env**: не трогать без подтверждения
 
 ## Инциденты
 - `// @see /root/LabDoctorM/INCIDENTS.md`

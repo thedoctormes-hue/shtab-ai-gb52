@@ -1,0 +1,14 @@
+[Unit]
+Description=Protocol Telegram Bot
+After=protocol.service
+Requires=protocol.service
+
+[Service]
+WorkingDirectory=/root/LabDoctorM/projects/telegram-bots/protocol
+EnvironmentFile=/root/LabDoctorM/projects/telegram-bots/protocol/.env
+ExecStart=/root/LabDoctorM/venv/bin/python3 -m bot.main
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

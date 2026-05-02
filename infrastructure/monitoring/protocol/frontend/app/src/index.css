@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* === LabDoctorM Design Tokens === */
+    --bg-primary: #FDFCFA;
+    --bg-secondary: #F5F3EF;
+    --bg-tertiary: #EDEAE4;
+    --text-primary: #1A1A1A;
+    --text-secondary: #6B6560;
+    --text-tertiary: #A39E98;
+    --accent: #D4A048;
+    --accent-hover: #C08E3A;
+    --accent-soft: rgba(212, 160, 72, 0.12);
+    --border-color: #E8E5E0;
+    --border-focus: #D4A048;
+    --success: #5A9A6E;
+    --danger: #C45A4A;
+    --privacy-private: #C45A4A;
+    --privacy-trusted: #D4A048;
+    --privacy-public: #5A9A6E;
+
+    /* shadcn/ui overrides */
+    --background: 40 33% 98%;
+    --foreground: 0 0% 10%;
+    --card: 36 20% 95%;
+    --card-foreground: 0 0% 10%;
+    --popover: 40 33% 98%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 40 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 20% 95%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 36 14% 91%;
+    --muted-foreground: 24 6% 40%;
+    --accent: 40 60% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 8 55% 53%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 36 14% 90%;
+    --input: 36 14% 90%;
+    --ring: 40 60% 55%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border-color;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .border-border-color {
+    border-color: var(--border-color);
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .bg-bg-primary {
+    background-color: var(--bg-primary);
+  }
+
+  .bg-bg-secondary {
+    background-color: var(--bg-secondary);
+  }
+
+  .bg-bg-tertiary {
+    background-color: var(--bg-tertiary);
+  }
+
+  .text-text-primary {
+    color: var(--text-primary);
+  }
+
+  .text-text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .text-text-tertiary {
+    color: var(--text-tertiary);
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .bg-accent {
+    background-color: var(--accent);
+  }
+
+  .bg-accent-hover {
+    background-color: var(--accent-hover);
+  }
+
+  .bg-accent-soft {
+    background-color: var(--accent-soft);
+  }
+
+  .text-success {
+    color: var(--success);
+  }
+
+  .text-danger {
+    color: var(--danger);
+  }
+
+  .border-focus {
+    border-color: var(--border-focus);
+  }
+
+  .privacy-private {
+    color: var(--privacy-private);
+    background-color: rgba(196, 90, 74, 0.12);
+  }
+
+  .privacy-trusted {
+    color: var(--privacy-trusted);
+    background-color: rgba(212, 160, 72, 0.12);
+  }
+
+  .privacy-public {
+    color: var(--privacy-public);
+    background-color: rgba(90, 154, 110, 0.12);
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 300ms ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-shake {
+  animation: shake 300ms ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spin 1s linear infinite;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}

@@ -1,0 +1,8 @@
+[Unit]
+Description=Protocol Night Analyst
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/LabDoctorM/projects/telegram-bots/protocol
+EnvironmentFile=/root/LabDoctorM/projects/telegram-bots/protocol/.env
+ExecStart=/root/LabDoctorM/venv/bin/python3 -m app.night_analyst

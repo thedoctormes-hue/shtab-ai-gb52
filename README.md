@@ -3,6 +3,8 @@
 
 <div align="center">
 
+![LabDoctorM Banner](https://raw.githubusercontent.com/thedoctormes-hue/shtab-ai-gb52/main/projects/github-premium/profile-header.png)
+
 ```
 ╔══════════════════════════════════════════════════════════════════╗
 ║  🧬 LAB DOCTOR M • МЕДЛАБОРАТОРИЯ БУДУЩЕГО • FUTURE LAB        ║
@@ -146,7 +148,7 @@ npm run build && rsync -av dist/ /var/www/<project>/
 
 <div align="center">
 
-**💎 Invest 2 minutes in setup — save hours every week**  
+**💎 Invest 2 minutes in setup — save hours every week**
 *Made with ❤️ in LabDoctorM Laboratory*
 
 </div>

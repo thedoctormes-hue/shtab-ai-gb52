@@ -1,0 +1,50 @@
+{
+  "servers": [
+    {
+      "name": "WARSAW",
+      "city": "Warsaw",
+      "country": "PL",
+      "ip": "185.138.90.150",
+      "port": 10086,
+      "reality_sni": "www.microsoft.com",
+      "reality_fp": "chrome",
+      "private_key": "iJPbrf-Vv1pePgDQHroLYlnLu3-V6MbndZmJhK7zhns",
+      "public_key": "Q7P9aveiWcBmNYLcnP5b-HXMnnz7FUcpIfDZKk--elY",
+      "active": true
+    },
+    {
+      "name": "FLORIDA",
+      "city": "Miami",
+      "country": "US",
+      "ip": "104.253.1.210",
+      "port": 10086,
+      "reality_sni": "www.google.com",
+      "reality_fp": "chrome",
+      "private_key": "SI87jchWXJfK2GOr3e2FL51F-djNDVgVWPiSHq5GfFI",
+      "public_key": "czO92eWUw0tNqjZKzTd9YqSSy42LQZdSEvardnpqtio",
+      "active": true
+    },
+    {
+      "name": "RF-PROXY-1",
+      "city": "Moscow",
+      "country": "RU",
+      "ip": "89.169.4.51",
+      "port": 47474,
+      "reality_sni": "ok.ru",
+      "reality_fp": "chrome",
+      "uuid": "b831381d-6324-4d53-ad4f-8cda48b30811",
+      "private_key": "OI2aMSNwz095eUdua6yQlRXL0OP1TtNqlMeuwucnyk0",
+      "public_key": "xAlm6u6nEzTlVsF3KzX84ifSeey-hEnI88IMUiLPnAw",
+      "role": "whitelist-proxy",
+      "upstream": "185.138.90.150:8443",
+      "network": "xhttp",
+      "path": "/api/v1/users/auth",
+      "flow": "xtls-rprx-vision",
+      "fallback_chains": [
+        {"type": "ss2022", "port": 47474},
+        {"type": "nginx", "port": 443}
+      ],
+      "active": true
+    }
+  ]
+}

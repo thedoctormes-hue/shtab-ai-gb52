@@ -1,0 +1,78 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [
+    {
+      "port": 47474,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+            "flow": "xtls-rprx-vision",
+            "email": "rf-proxy@xhttp"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+          {"dest": "127.0.0.1:8080", "xver": 2}
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "ok.ru:443",
+          "serverNames": ["ok.ru", "odnoklassniki.ru", "m.ok.ru"],
+          "privateKey": "OI2aMSNwz095eUdua6yQlRXL0OP1TtNqlMeuwucnyk0",
+          "shortIds": ["", "abcdef123456"]
+        },
+        "xhttpSettings": {
+          "mode": "packet-up",
+          "path": "/api/v1/users/auth"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "tag": "upstream-warsaw",
+      "settings": {
+        "vnext": [{
+          "address": "185.138.90.150",
+          "port": 8443,
+          "users": [{
+            "id": "53396a4c-47d4-482a-8202-8327b485f5a0",
+            "encryption": "none",
+            "flow": "xtls-rprx-vision"
+          }]
+        }]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "vkvideo.ru:443",
+          "serverNames": ["vkvideo.ru"],
+          "privateKey": "YPTRxne-Ix8_Hq_llO0fUEXseVGvvjaBhnNYc60PY1s",
+          "shortIds": [""]
+        },
+        "xhttpSettings": {
+          "mode": "packet-up",
+          "path": "/api/v1/update"
+        }
+      }
+    },
+    {"protocol": "freedom", "tag": "direct"}
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "outboundTag": "upstream-warsaw"
+      }
+    ]
+  }
+}

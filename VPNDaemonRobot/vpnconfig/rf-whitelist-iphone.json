@@ -1,0 +1,28 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [{
+    "port": 10808,
+    "protocol": "socks",
+    "settings": {"udp": true, "auth": "noauth"}
+  }],
+  "outbounds": [{
+    "protocol": "vless",
+    "settings": {
+      "vnext": [{
+        "address": "89.169.4.51",
+        "port": 443,
+        "users": [{"id": "dc26dbe7-0a56-43b8-aad2-30367038bded", "encryption": "none", "flow": "xtls-rprx-vision"}]
+      }]
+    },
+    "streamSettings": {
+      "network": "tcp",
+      "security": "reality",
+      "realitySettings": {
+        "serverName": "sso.passport.yandex.ru",
+        "publicKey": "-cU9BXmyucOwqNAdCzqNCkYFUuCjb6L6jt_DuVPHvWs",
+        "shortId": "",
+        "fingerprint": "chrome"
+      }
+    }
+  }]
+}

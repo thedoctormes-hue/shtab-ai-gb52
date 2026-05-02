@@ -1,0 +1,55 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [
+    {
+      "port": 47474,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {"id": "b831381d-6324-4d53-ad4f-8cda48b30811", "flow": "xtls-rprx-vision", "email": "rf-proxy-florida"}
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "www.google.com:443",
+          "serverNames": ["www.google.com", "google.com"],
+          "privateKey": "OI2aMSNwz095eUdua6yQlRXL0OP1TtNqlMeuwucnyk0",
+          "publicKey": "xAlm6u6nEzTlVsF3KzX84ifSeey-hEnI88IMUiLPnAw",
+          "shortIds": ["abcdef123456"]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "tag": "upstream-florida",
+      "settings": {
+        "vnext": [{
+          "address": "104.253.1.210",
+          "port": 10086,
+          "users": [{"id": "b831381d-6324-4d53-ad4f-8cda48b30811", "encryption": "none", "flow": "xtls-rprx-vision"}]
+        }]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "www.google.com:443",
+          "serverNames": ["www.google.com", "google.com"],
+          "privateKey": "SI87jchWXJfK2GOr3e2FL51F-djNDVgVWPiSHq5GfFI",
+          "publicKey": "czO92eWUw0tNqjZKzTd9YqSSy42LQZdSEvardnpqtio",
+          "shortIds": ["01234567"]
+        }
+      }
+    },
+    {"protocol": "freedom", "tag": "direct"}
+  ],
+  "routing": {
+    "rules": [{"type": "field", "network": "tcp,udp", "outboundTag": "upstream-florida"}]
+  }
+}

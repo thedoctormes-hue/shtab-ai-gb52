@@ -1,0 +1,89 @@
+{
+  "log": {"loglevel": "warning"},
+  "dns": {
+    "servers": ["1.1.1.1", "1.0.0.1"],
+    "queryStrategy": "UseIP"
+  },
+  "routing": {
+    "rules": [
+      {"type": "field", "protocol": ["bittorrent"], "outboundTag": "direct"},
+      {"type": "field", "network": "tcp,udp", "balancerTag": "foreign_upstream_lb"}
+    ],
+    "balancers": [
+      {
+        "tag": "foreign_upstream_lb",
+        "selector": ["warsaw", "florida"],
+        "strategy": {"type": "leastLoad"},
+        "fallbackTag": "warsaw"
+      }
+    ],
+    "domainMatcher": "hybrid"
+  },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [{"id": "0129aba9-e2bf-470b-a06c-9a465ab015b5", "flow": "xtls-rprx-vision"}],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "www.microsoft.com:443",
+          "serverNames": ["www.microsoft.com", "apple.com"],
+          "privateKey": "OC1kKNoZDAsaU3h3aLJ8D5PWMhCYAJck_Uz7VIqTymk",
+          "shortIds": [""]
+        }
+      },
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "warsaw",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "185.138.90.150",
+          "port": 443,
+          "users": [{"id": "0129aba9-e2bf-470b-a06c-9a465ab015b5", "encryption": "none", "flow": "xtls-rprx-vision"}]
+        }]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "www.microsoft.com:443",
+          "serverNames": ["www.microsoft.com"],
+          "privateKey": "2GHw814dHN1bdgYrdl_oWFBzDmctPwzyl00B8Klk1XQ",
+          "shortIds": [""]
+        }
+      }
+    },
+    {
+      "tag": "florida",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [{
+          "address": "104.253.1.210",
+          "port": 10086,
+          "users": [{"id": "bfffefdb-2f46-45a3-975c-f8119f269be4", "encryption": "none", "flow": "xtls-rprx-vision"}]
+        }]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "www.cloudflare.com:443",
+          "serverNames": ["www.cloudflare.com"],
+          "privateKey": "OC1kKNoZDAsaU3h3aLJ8D5PWMhCYAJck_Uz7VIqTymk",
+          "shortIds": [""]
+        }
+      }
+    },
+    {"tag": "direct", "protocol": "freedom"},
+    {"tag": "block", "protocol": "blackhole"}
+  ]
+}

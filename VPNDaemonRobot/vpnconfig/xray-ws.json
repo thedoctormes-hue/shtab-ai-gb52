@@ -1,0 +1,63 @@
+{
+  "log": {
+    "access": "/root/LabDoctorM/VPNDaemonRobot/logs/xray-access.log",
+    "error": "/root/LabDoctorM/VPNDaemonRobot/logs/xray-error.log",
+    "loglevel": "warning"
+  },
+  "stats": {},
+  "inbounds": [
+    {
+      "port": 80,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "53396a4c-47d4-482a-8202-8327b485f5a0"
+          },
+          {
+            "id": "75e37503-6222-464c-a575-da94f470322b",
+            "email": "@DoctorMES"
+          },
+          {
+            "id": "bb50444f-7f4d-48ac-8a99-d0eae92a1529",
+            "email": "@Лёша"
+          },
+          {
+            "id": "ed4faffa-e3fe-4ff4-b3b0-65ff400242b1",
+            "email": "@babak_danila"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/api/v1/data",
+          "headers": {
+            "Host": "www.microsoft.com"
+          }
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "blocked"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "protocol": ["bittorrent"],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
+}

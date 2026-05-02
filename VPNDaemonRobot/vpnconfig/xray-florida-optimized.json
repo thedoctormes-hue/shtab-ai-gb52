@@ -1,0 +1,113 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "stats": {},
+  "api": {
+    "tag": "api",
+    "services": [
+      "StatsService"
+    ]
+  },
+  "dns": {
+    "servers": [
+      "1.1.1.1",
+      "1.0.0.1"
+    ]
+  },
+  "inbounds": [
+    {
+      "port": 10086,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {"id": "bfffefdb-2f46-45a3-975c-f8119f269be4", "flow": "xtls-rprx-vision"},
+          {"id": "0129aba9-e2bf-470b-a06c-9a465ab015b5", "flow": ""}
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "www.cloudflare.com:443",
+          "xver": 0,
+          "serverNames": [
+            "www.cloudflare.com",
+            "www.microsoft.com",
+            "apple.com"
+          ],
+          "privateKey": "OC1kKNoZDAsaU3h3aLJ8D5PWMhCYAJck_Uz7VIqTymk",
+          "shortIds": [""]
+        },
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpKeepAliveInterval": 10,
+          "tcpNoDelay": true,
+          "mark": 0
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      },
+      "allocate": {
+        "strategy": "always",
+        "refresh": 5,
+        "concurrency": 1000
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct",
+      "settings": {
+        "domainStrategy": "AsIs"
+      },
+      "sockopt": {
+        "tcpKeepAliveIdle": 30,
+        "tcpNoDelay": true
+      }
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "blocked"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "protocol": [
+          "bittorrent"
+        ],
+        "outboundTag": "blocked"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  },
+  "policy": {
+    "levels": {
+      "0": {
+        "handshake": 4,
+        "connIdle": 300,
+        "uplinkOnly": 0,
+        "downlinkOnly": 0,
+        "statsUserUplink": true,
+        "statsUserDownlink": true,
+        "floodAttack": "reject"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "clients": [
+    {
+      "email": "@DoctorMES",
+      "uuid": "75e37503-6222-464c-a575-da94f470322b",
+      "server": "WARSAW",
+      "limit": null,
+      "active": true
+    },
+    {
+      "email": "@Лёша",
+      "uuid": "bb50444f-7f4d-48ac-8a99-d0eae92a1529",
+      "server": "WARSAW",
+      "limit": null,
+      "active": true,
+      "created": "2026-04-27T20:11:08.101367"
+    },
+    {
+      "email": "@babak_danila",
+      "uuid": "ed4faffa-e3fe-4ff4-b3b0-65ff400242b1",
+      "server": "WARSAW",
+      "limit": null,
+      "active": true,
+      "created": "2026-04-28T19:12:17.520955"
+    },
+    {
+      "uuid": "7bc5a931-e8dc-4675-9085-d0e9ea70eca6",
+      "email": "@ZavLab_Florida",
+      "server": "FLORIDA",
+      "limit": null,
+      "active": true,
+      "created": "2026-04-30T01:00:00"
+    }
+  ]
+}

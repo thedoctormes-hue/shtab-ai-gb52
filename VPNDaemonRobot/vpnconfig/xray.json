@@ -1,0 +1,40 @@
+{
+  "log": {
+    "access": "/root/LabDoctorM/VPNDaemonRobot/logs/xray-access.log",
+    "error": "/root/LabDoctorM/VPNDaemonRobot/logs/xray-error.log",
+    "loglevel": "warning"
+  },
+  "stats": {},
+  "inbounds": [
+    {
+      "port": 10086,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {"id": "75e37503-6222-464c-a575-da94f470322b", "flow": "xtls-rprx-vision"},
+          {"id": "bb50444f-7f4d-48ac-8a99-d0eae92a1529", "flow": "xtls-rprx-vision"},
+          {"id": "ed4faffa-e3fe-4ff4-b3b0-65ff400242b1", "flow": "xtls-rprx-vision"}
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "www.microsoft.com:443",
+          "serverNames": ["www.microsoft.com", "microsoft.com"],
+          "privateKey": "iJPbrf-Vv1pePgDQHroLYlnLu3-V6MbndZmJhK7zhns",
+          "publicKey": "Q7P9aveiWcBmNYLcnP5b-HXMnnz7FUcpIfDZKk--elY",
+          "shortIds": ["a1b2c3d4"]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {"protocol": "freedom", "tag": "direct"},
+    {"protocol": "blackhole", "tag": "blocked"}
+  ],
+  "routing": {
+    "rules": [{"type": "field", "protocol": ["bittorrent"], "outboundTag": "blocked"}]
+  }
+}

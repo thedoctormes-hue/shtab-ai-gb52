@@ -1,0 +1,32 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [
+    {
+      "port": 8443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "vkvideo.ru:443",
+          "serverNames": ["vkvideo.ru", "yandex.ru", "mail.ru"],
+          "privateKey": "YPTRxne-Ix8_Hq_llO0fUEXseVGvvjaBhnNYc60PY1s",
+          "publicKey": "Q7P9aveiWcBmNYLcnP5b-HXMnnz7FUcpIfDZKk--elY",
+          "shortIds": ["", "0123456789abcdef"]
+        },
+        "xhttpSettings": {
+          "mode": "packet-up",
+          "path": "/api/v1/update"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {"protocol": "freedom", "tag": "direct"},
+    {"protocol": "blackhole", "tag": "block"}
+  ]
+}

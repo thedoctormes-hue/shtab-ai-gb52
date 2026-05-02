@@ -1,0 +1,67 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {"id": "0129aba9-e2bf-470b-a06c-9a465ab015b5", "flow": "xtls-rprx-vision"}
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "www.microsoft.com:443",
+          "serverNames": ["www.microsoft.com", "apple.com"],
+          "privateKey": "kAdoyjUTciHFgoKM5awHXLl4OGGfC5ysoeZnTAIOgEo",
+          "shortIds": ["", "0123456789abcdef"]
+        }
+      }
+    },
+    {
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {"udp": true, "auth": "noauth"}
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "tag": "vpn-upstream",
+      "settings": {
+        "vnext": [
+          {
+            "address": "185.138.90.150",
+            "port": 8443,
+            "users": [
+              {"id": "8d62aec9-904f-4cc2-a45e-6d9d2f8c00db", "encryption": "none", "flow": "xtls-rprx-vision"}
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.cloudflare.com",
+          "password": "WqXYALR9fraWU38kkJFDe0ZxpTwwYi32WvvfjktQnhE",
+          "shortId": ""
+        },
+        "xhttpSettings": {
+          "mode": "packet-up",
+          "path": "/api/v1/update"
+        }
+      }
+    },
+    {"protocol": "freedom", "tag": "direct"},
+    {"protocol": "blackhole", "tag": "block"}
+  ],
+  "routing": {
+    "rules": [
+      {"type": "field", "network": "tcp,udp", "outboundTag": "vpn-upstream"}
+    ]
+  }
+}

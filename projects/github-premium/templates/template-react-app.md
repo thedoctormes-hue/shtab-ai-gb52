@@ -1,0 +1,78 @@
+# ⚛️ {{APP_NAME}}
+
+Веб-приложение лаборатории ЗавЛаб Безумный Доктор для {{PURPOSE}}.
+
+![Build Status](https://img.shields.io/github/actions/workflow/status/{{OWNER}}/{{REPO}}/node-app.yml?label=build)
+![Version](https://img.shields.io/github/v/release/{{OWNER}}/{{REPO}})
+![License](https://img.shields.io/github/license/{{OWNER}}/{{REPO}})
+![Stars](https://img.shields.io/github/stars/{{OWNER}}/{{REPO}}?style=social)
+
+---
+
+## 📝 TL;DR
+{{Краткое описание назначения приложения в 1-2 предложениях}}
+
+---
+
+## 🎯 Цели
+- {{Цель 1}}
+- {{Цель 2}}
+- {{Цель 3}}
+
+---
+
+## ⚡ Features
+- ✅ {{Реализованный функционал 1}}
+- ✅ {{Реализованный функционал 2}}
+- 🚧 {{Запланированный функционал 1}}
+
+---
+
+## 🚀 Quick Start
+### Требования
+- Node.js 18+
+- npm 9+
+
+### Установка
+```bash
+git clone https://github.com/{{OWNER}}/{{REPO}}.git
+cd {{REPO}}
+npm install
+```
+
+### Настройка
+Создайте `.env` файл:
+```env
+VITE_API_URL=https://api.shtab-ai.ru
+```
+
+### Запуск в режиме разработки
+```bash
+npm run dev
+```
+
+### Сборка для продакшена
+```bash
+npm run build
+```
+
+---
+
+## 📚 API
+Приложение взаимодействует с бэкендом по адресу: `{{API_URL}}`
+Документация API: `{{API_DOCS_URL}}`
+
+---
+
+## 🤝 Contributing
+1. Форкайте репозиторий
+2. Создайте ветку `feature/your-feature`
+3. Внесите изменения с коммитом по стандарту [Conventional Commits](https://www.conventionalcommits.org/)
+4. Создайте Pull Request
+
+---
+
+## 📞 Контакты
+- Канал поддержки: {{SUPPORT_CHANNEL}}
+- Чат разработки: {{DEV_CHAT}}
+- Почта: lab@shtab-ai.ru

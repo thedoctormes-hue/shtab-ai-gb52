@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="#0a0a0f"/>
+  <g filter="url(#glow)">
+    <!-- Shield shape -->
+    <path d="M16 4 L26 9 L26 17 C26 23 16 28 16 28 C16 28 6 23 6 17 L6 9 Z" 
+          fill="none" stroke="#FF00FF" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Lightning bolt -->
+    <path d="M16 11 L12 18 L16 18 L14 24 L20 16 L16 16 Z" 
+          fill="#00FFFF" stroke="none"/>
+  </g>
+</svg>

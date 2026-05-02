@@ -16,3 +16,11 @@
 
 ## Инциденты
 - `// @see /root/LabDoctorM/INCIDENTS.md`
+
+## Автоматический старт сессии (ЕБШ)
+🔥 Каждая сессия начинается с чтения:
+1. `/root/.qwen/evolution_backlog.json` — задачи
+2. `/root/.qwen/agents/EMPLOYEES.md` — сотрудники
+3. `/root/.qwen/rules.md` — протокол (ниже)
+
+`/root/.qwen/session_startup.sh` — быстрый запуск

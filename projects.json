@@ -1,12 +1,98 @@
 {
   "projects": [
-    {"name": "@MSKgastroDigestbot", "path": "/root/LabDoctorM/@MSKgastroDigestbot/", "priority": 1},
-    {"name": "AiderDMrobot", "path": "/root/LabDoctorM/AiderDMrobot/", "priority": 2},
-    {"name": "VPNDaemonRobot", "path": "/root/LabDoctorM/VPNDaemonRobot/", "priority": 1},
-    {"name": "Protocol", "path": "/root/LabDoctorM/Protocol/", "priority": 1},
-    {"name": "LLMevangelist", "path": "/root/LabDoctorM/LLMevangelist/", "priority": 3},
-    {"name": "eva_forewa_bot", "path": "/root/LabDoctorM/eva_forewa_bot/", "priority": 2},
-    {"name": "MailDaemonRobot", "path": "/root/LabDoctorM/MailDaemonRobot/", "priority": 3},
-    {"name": "stenographerobot", "path": "/root/LabDoctorM/stenographerobot/", "priority": 3}
+    {
+      "name": "kotolizator",
+      "path": "/root/LabDoctorM/",
+      "priority": 0,
+      "type": "cli-system",
+      "service": "kotolizator.service",
+      "channel": "@kotolizator"
+    },
+    {
+      "name": "msk-gastro-digest-bot",
+      "path": "/root/LabDoctorM/projects/telegram-bots/msk-gastro-digest-bot/",
+      "priority": 1,
+      "type": "telegram-bot"
+    },
+    {
+      "name": "vpn-daemon",
+      "path": "/root/LabDoctorM/projects/telegram-bots/vpn-daemon/",
+      "priority": 1,
+      "type": "telegram-bot"
+    },
+    {
+      "name": "mail-daemon",
+      "path": "/root/LabDoctorM/projects/telegram-bots/mail-daemon/",
+      "priority": 1,
+      "type": "telegram-bot"
+    },
+    {
+      "name": "stenographer",
+      "path": "/root/LabDoctorM/projects/telegram-bots/stenographer/",
+      "priority": 2,
+      "type": "telegram-bot"
+    },
+    {
+      "name": "llm-evangelist",
+      "path": "/root/LabDoctorM/projects/telegram-bots/llm-evangelist/",
+      "priority": 3,
+      "type": "telegram-bot"
+    },
+    {
+      "name": "shtab-ai-gb52",
+      "path": "/var/www/shtab-ai.ru/",
+      "priority": 1,
+      "type": "landing-page"
+    },
+    {
+      "name": "syncthing-dashboard",
+      "path": "/root/LabDoctorM/projects/web-apps/syncthing-dashboard/",
+      "priority": 3,
+      "type": "dashboard",
+      "description": "Dashboard синхронизации файлов",
+      "url": "https://dashboard.shtab-ai.ru",
+      "status": "✅ Работает (nginx + os-lab-api:8002)",
+      "integrates_with": [
+        "os-lab-api",
+        "metrics"
+      ]
+    },
+    {
+      "name": "os-lab-api",
+      "path": "/root/LabDoctorM/projects/web-apps/os-lab-api/",
+      "priority": 2,
+      "type": "api",
+      "description": "API мониторинга серверов (Warsaw/Florida/RF)",
+      "port": 8002,
+      "integrates_with": [
+        "syncthing-dashboard",
+        "metrics"
+      ]
+    },
+    {
+      "name": "protocol",
+      "path": "/root/LabDoctorM/infrastructure/monitoring/protocol/",
+      "priority": 1,
+      "type": "infrastructure"
+    },
+    {
+      "name": "metrics",
+      "path": "/root/LabDoctorM/infrastructure/monitoring/metrics/",
+      "priority": 2,
+      "type": "infrastructure",
+      "description": "Сбор и анализ метрик серверов (weekly/yearly)",
+      "integrates_with": [
+        "os-lab-api",
+        "protocol"
+      ]
+    },
+    {
+      "name": "protocol-bot",
+      "path": "/root/protocol/bot/",
+      "priority": 1,
+      "type": "telegram-bot",
+      "service": "protocol-bot.service",
+      "channel": "@Protocolstandbot"
+    }
   ]
 }

@@ -1,0 +1,16 @@
+[Unit]
+Description=OpenClawBox Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/LabDoctorM/OpenClawBox
+Environment="PATH=/root/LabDoctorM/OpenClawBox/.venv/bin"
+EnvironmentFile=/root/LabDoctorM/OpenClawBox/.env
+ExecStart=/root/LabDoctorM/OpenClawBox/.venv/bin/python -m bot.main
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

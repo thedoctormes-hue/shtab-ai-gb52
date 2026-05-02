@@ -248,6 +248,31 @@ async def upsert_pattern(user_id: str, description: str) -> None:
         await db.close()
 
 
+async def get_today_pattern(user_id: str) -> dict | None:
+    """Получить паттерн дня."""
+    db = await get_db()
+    try:
+        sql = """
+            SELECT description, occurrences
+            FROM patterns
+            WHERE user_id = ?
+              AND date(last_seen_at, '+3 hours') = date('now', '+3 hours')
+            ORDER BY occurrences DESC
+            LIMIT 1
+        """
+        cursor = await db.execute(sql, (user_id,))
+        row = await cursor.fetchone()
+
+        if row:
+            return {
+                "description": row["description"],
+                "occurrences": row["occurrences"]
+            }
+        return None
+    finally:
+        await db.close()
+
+
 async def get_recent_fragments(user_id: str) -> list[dict]:
     """Получить фрагменты за последние 24 часа."""
     db = await get_db()

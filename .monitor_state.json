@@ -1,0 +1,11 @@
+{
+  "kotolizator": "active",
+  "stenographerobot": "active",
+  "maildaemonrobot": "active",
+  "qwen-kotolizator": "active",
+  "demonvpn": "active",
+  "vpn-florida-site": "inactive",
+  "vpn-florida": "active",
+  "vpn-rf-proxy": "active",
+  "llmevangelist": "inactive"
+}

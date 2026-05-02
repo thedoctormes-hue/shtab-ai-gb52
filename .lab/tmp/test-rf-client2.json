@@ -1,0 +1,32 @@
+{
+  "log": {"loglevel": "info"},
+  "inbounds": [{
+    "port": 1080,
+    "protocol": "socks",
+    "settings": {"udp": true}
+  }],
+  "outbounds": [{
+    "protocol": "vless",
+    "settings": {
+      "vnext": [{
+        "address": "89.169.4.51",
+        "port": 443,
+        "users": [{
+          "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+          "encryption": "none",
+          "flow": "xtls-rprx-vision"
+        }]
+      }]
+    },
+    "streamSettings": {
+      "network": "tcp",
+      "security": "reality",
+      "realitySettings": {
+        "serverName": "yandex.ru",
+        "publicKey": "s84wqscQe1bIwnBR3j1wLhPRUx7X_Hy1B6R3-_gepDs",
+        "shortId": "",
+        "fingerprint": "chrome"
+      }
+    }
+  }]
+}

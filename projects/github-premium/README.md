@@ -1,17 +1,17 @@
 # 🚀 GitHub Premium
 
+[![Security](https://img.shields.io/badge/security-passed-brightgreen)](SECURITY.md)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 Проект по созданию стильного корпоративного GitHub для LabDoctorM.
 
 ## 🌟 Что уже готово
-
-| Компонент | Статус | Описание |
-|-----------|--------|----------|
-| 📋 STYLE_GUIDE.md | ✅ | Гайд по оформлению репозиториев |
-| 🤖 Шаблоны README | ✅ | Telegram-боты, FastAPI, React, Landing |
-| ⚙️ GitHub Actions | ✅ | CI/CD workflows для Python/React |
-| 🐛 Issue Template | ✅ | Шаблон для баг-репортов |
-| 📥 PR Template | ✅ | Шаблон для пулреквестов |
-| 🛡️ Security Audit | ✅ | Отчёт по аудиту безопасности |
+- STYLE_GUIDE.md — Гайд по оформлению репозиториев
+- Шаблоны README — Telegram-боты, FastAPI, React, Landing  
+- GitHub Actions — CI/CD workflows для Python/React
+- Issue Template — Шаблон для баг-репортов
+- PR Template — Шаблон для пулреквестов
+- Security Audit — Отчёт по аудиту безопасности
 
 ## 📂 Структура
 ```

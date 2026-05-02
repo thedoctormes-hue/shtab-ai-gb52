@@ -1,0 +1,69 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {"id": "dc26dbe7-0a56-43b8-aad2-30367038bded", "flow": "xtls-rprx-vision"}
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "sso.passport.yandex.ru:443",
+          "serverNames": ["sso.passport.yandex.ru", "yandex.ru", "www.yandex.ru"],
+          "privateKey": "8OS_zaT3om2RTyqG_5aYLXxICN28uyfaIQ1JmYwt3GM",
+          "shortIds": ["", "0123456789abcdef"]
+        }
+      }
+    },
+    {
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {"udp": true, "auth": "noauth"}
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "tag": "vpn-upstream",
+      "settings": {
+        "vnext": [
+          {
+            "address": "185.138.90.150",
+            "port": 8443,
+            "users": [
+              {"id": "53396a4c-47d4-482a-8202-8327b485f5a0", "encryption": "none", "flow": "xtls-rprx-vision"}
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "vkvideo.ru:443",
+          "serverNames": ["vkvideo.ru", "yandex.ru"],
+          "privateKey": "iJPbrf-Vv1pePgDQHroLYlnLu3-V6MbndZmJhK7zhns",
+          "publicKey": "Q7P9aveiWcBmNYLcnP5b-HXMnnz7FUcpIfDZKk--elY",
+          "shortIds": [""]
+        },
+        "xhttpSettings": {
+          "mode": "packet-up",
+          "path": "/api/v1/update"
+        }
+      }
+    },
+    {"protocol": "freedom", "tag": "direct"},
+    {"protocol": "blackhole", "tag": "block"}
+  ],
+  "routing": {
+    "rules": [
+      {"type": "field", "network": "tcp,udp", "outboundTag": "vpn-upstream"}
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+[Unit]
+Description=MSK Gastro Digest Bot - Telegram bot for culinary content
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/LabDoctorM/@MSKgastroDigestbot
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/usr/bin/python3 /root/LabDoctorM/@MSKgastroDigestbot/main.py
+Restart=always
+RestartSec=10
+
+StandardOutput=append:/root/LabDoctorM/@MSKgastroDigestbot/logs/stdout.log
+StandardError=append:/root/LabDoctorM/@MSKgastroDigestbot/logs/stderr.log
+
+[Install]
+WantedBy=multi-user.target

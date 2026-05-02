@@ -1,0 +1,75 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f59d2145-f170-4cb1-ae99-a66db2db8e61",
+            "flow": "xtls-rprx-vision",
+            "encryption": "none",
+            "sid": "01234567"
+          },
+          {
+            "id": "07a8a923-5ca5-4527-a9af-af033386f45f",
+            "email": "user-FIXTEST0",
+            "flow": "xtls-rprx-vision",
+            "encryption": "none",
+            "sid": "01234567"
+          },
+          {
+            "id": "95b294b4-ca10-47bd-833d-176051ccfd6f",
+            "email": "user-\u0432\u044b\u043e\u043b\u0440\u043e\u0432\u0430",
+            "flow": "xtls-rprx-vision",
+            "encryption": "none",
+            "sid": "01234567"
+          },
+          {
+            "id": "58d53465-a4c0-4c49-8af6-af0b7a5b6f62",
+            "email": "user-\u0440\u0440\u0433\u043e\u0440\u043e\u043b\u0440",
+            "flow": "xtls-rprx-vision",
+            "encryption": "none",
+            "sid": "01234567"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "www.google.com:443",
+          "xver": 0,
+          "serverNames": [
+            "www.google.com",
+            "google.com",
+            "www.cloudflare.com"
+          ],
+          "privateKey": "yM6WkRoy3-IjQ6SvQG-OlFannfL1LtiHYcWiQiTt4VA",
+          "shortIds": [
+            "0123456789abcdef",
+            "01234567"
+          ]
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}

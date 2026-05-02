@@ -1,0 +1,15 @@
+{
+  "bots": {
+    "testbot": {
+      "token": "testbot_BOT_TOKEN_PLACEHOLDER",
+      "channel_id": "-100Te22845",
+      "path": "/root/LabDoctorM/testbot"
+    },
+    "test-worker": {
+      "token": "test-worker_BOT_TOKEN_PLACEHOLDER",
+      "channel_id": "-100te95851",
+      "path": "/root/LabDoctorM/test-worker"
+    }
+  },
+  "channels": {}
+}

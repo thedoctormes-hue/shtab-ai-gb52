@@ -1,0 +1,15 @@
+[tool.ruff]
+# Включаемые правила
+select = ["E", "W", "F", "I", "N", "UP", "B", "SIM"]
+
+# Игнорируемые правила
+ignore = ["E501"]
+
+# Исключения
+exclude = ["tests/", "venv/", "__pycache__/"]
+
+[tool.ruff.lint]
+pydocstyle = { convention = "google" }
+
+[tool.ruff.lint.isort]
+known-first-party = ["main"]

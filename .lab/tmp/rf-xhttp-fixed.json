@@ -1,0 +1,55 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [{
+    "port": 443,
+    "protocol": "vless",
+    "settings": {
+      "clients": [{"id": "b831381d-6324-4d53-ad4f-8cda48b30811", "flow": "xtls-rprx-vision"}],
+      "decryption": "none"
+    },
+    "streamSettings": {
+      "network": "xhttp",
+      "security": "tls",
+      "tlsSettings": {
+        "alpn": ["h2", "http/1.1"],
+        "certificates": [{"certificateFile": "/etc/xray/cert.pem", "keyFile": "/etc/xray/key.pem"}]
+      },
+      "xhttpSettings": {
+        "path": "/xhttp",
+        "host": "www.microsoft.com",
+        "mode": "auto"
+      }
+    }
+  }],
+  "outbounds": [{
+    "protocol": "vless",
+    "tag": "vpn-upstream",
+    "settings": {
+      "vnext": [{
+        "address": "185.138.90.150",
+        "port": 443,
+        "users": [{"id": "53396a4c-47d4-482a-8202-8327b485f5a0", "encryption": "none", "flow": "xtls-rprx-vision"}]
+      }]
+    },
+    "streamSettings": {
+      "network": "tcp",
+      "security": "reality",
+      "realitySettings": {
+        "dest": "www.microsoft.com:443",
+        "serverNames": ["www.microsoft.com"],
+        "privateKey": "mMSKYp9pB_Cck3CwCgGjAi5CnNvDlqKkIkErlelcSlg",
+        "publicKey": "Q7P9aveiWcBmNYLcnP5b-HXMnnz7FUcpIfDZKk--elY",
+        "shortIds": [""]
+      }
+    }
+  },
+  {"protocol": "freedom", "tag": "direct"},
+  {"protocol": "blackhole", "tag": "block"}],
+  "routing": {
+    "rules": [
+      {"type": "field", "domain": ["geosite:google", "geosite:github", "geosite:youtube", "geosite:telegram"], "outboundTag": "vpn-upstream"},
+      {"type": "field", "ip": ["geoip:private"], "outboundTag": "direct"},
+      {"type": "field", "network": "tcp,udp", "outboundTag": "block"}
+    ]
+  }
+}

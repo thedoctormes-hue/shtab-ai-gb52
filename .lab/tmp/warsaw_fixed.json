@@ -1,0 +1,66 @@
+{
+  "log": {
+    "access": "/root/LabDoctorM/VPNDaemonRobot/logs/xray-access.log",
+    "error": "/root/LabDoctorM/VPNDaemonRobot/logs/xray-error.log",
+    "loglevel": "warning"
+  },
+  "stats": {},
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {"id": "75e37503-6222-464c-a575-da94f470322b", "email": "@DoctorMES", "flow": ""},
+          {"id": "bb50444f-7f4d-48ac-8a99-d0eae92a1529", "email": "@Лёша", "flow": ""},
+          {"id": "ed4faffa-e3fe-4ff4-b3b0-65ff400242b1", "email": "@babak_danila", "flow": ""}
+        ],
+        "decryption": "none",
+        "fallbacks": [{"dest": "127.0.0.1:8444"}]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "www.google.com:443",
+          "xver": 0,
+          "serverNames": ["www.google.com", "www.cloudflare.com", "www.microsoft.com"],
+          "privateKey": "iJPbrf-Vv1pePgDQHroLYlnLu3-V6MbndZmJhK7zhns",
+          "shortIds": ["", "a1b2c3d4"]
+        },
+        "sockopt": {"tcpKeepAliveIdle": 30, "tcpKeepAliveInterval": 10, "tcpNoDelay": true, "acceptProxyProtocol": false}
+      },
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+    },
+    {
+      "port": 8443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {"id": "53396a4c-47d4-482a-8202-8327b485f5a0", "flow": "xtls-rprx-vision"},
+          {"id": "75e37503-6222-464c-a575-da94f470322b", "email": "@RFProxy", "flow": ""}
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "vkvideo.ru:443",
+          "serverNames": ["vkvideo.ru", "yandex.ru"],
+          "privateKey": "iJPbrf-Vv1pePgDQHroLYlnLu3-V6MbndZmJhK7zhns",
+          "shortIds": ["", "a1b2c3d4"]
+        },
+        "xhttpSettings": {"mode": "packet-up", "path": "/api/v1/update"}
+      }
+    }
+  ],
+  "outbounds": [
+    {"protocol": "freedom", "tag": "direct"},
+    {"protocol": "blackhole", "tag": "blocked"}
+  ],
+  "routing": {
+    "rules": [{"type": "field", "protocol": ["bittorrent"], "outboundTag": "blocked"}]
+  }
+}

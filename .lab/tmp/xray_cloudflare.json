@@ -1,0 +1,80 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f59d2145-f170-4cb1-ae99-a66db2db8e61",
+            "flow": "xtls-rprx-vision",
+            "sid": "01234567"
+          },
+          {
+            "id": "8d75ee39-a42a-41a4-94df-42557d0760e4",
+            "email": "user-54545454",
+            "flow": "xtls-rprx-vision",
+            "encryption": "none",
+            "sid": "01234567"
+          },
+          {
+            "id": "a7850534-59d0-47c8-a0fa-e2a127838aba",
+            "email": "user-\u043e\u043b\u043e\u043b\u043e\u043e\u043b\u0438",
+            "flow": "xtls-rprx-vision",
+            "encryption": "none",
+            "sid": "01234567"
+          },
+          {
+            "id": "038a6c01-e92b-4532-899e-3f1a52225754",
+            "email": "user-QUICKTES",
+            "flow": "xtls-rprx-vision",
+            "encryption": "none",
+            "sid": "01234567"
+          },
+          {
+            "id": "abfb81d2-d532-46d7-8a6f-734e823f247d",
+            "email": "user-4545465",
+            "flow": "xtls-rprx-vision",
+            "encryption": "none",
+            "sid": "01234567"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "www.cloudflare.com:443",
+          "xver": 0,
+          "serverNames": [
+            "www.cloudflare.com",
+            "cloudflare.com"
+          ],
+          "privateKey": "yM6WkRoy3-IjQ6SvQG-OlFannfL1LtiHYcWiQiTt4VA",
+          "shortIds": [
+            "0123456789abcdef",
+            "01234567"
+          ]
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}

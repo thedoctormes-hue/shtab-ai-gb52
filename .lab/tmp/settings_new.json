@@ -1,0 +1,205 @@
+{
+  "modelProviders": {
+    "openai": [
+      {
+        "id": "tencent/hy3-preview:free",
+        "name": "Tencent Hy3 Preview (free)",
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "envKey": "OPENROUTER_API_KEY"
+      },
+      {
+        "id": "minimax/minimax-m2.5:free",
+        "name": "MiniMax M2.5 (free)",
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "envKey": "OPENROUTER_API_KEY"
+      },
+      {
+        "id": "nvidia/nemotron-3-super-120b-a12b:free",
+        "name": "Nvidia Nemotron 120B (free)",
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "envKey": "OPENROUTER_API_KEY"
+      },
+      {
+        "id": "inclusionai/ling-2.6-flash:free",
+        "name": "Ling 2.6 Flash (free)",
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "envKey": "OPENROUTER_API_KEY"
+      },
+      {
+        "id": "z-ai/glm-4.5-air:free",
+        "name": "GLM 4.5 Air (free)",
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "envKey": "OPENROUTER_API_KEY"
+      },
+      {
+        "id": "mistralai/mistral-nemo",
+        "name": "Mistral Nemo",
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "envKey": "OPENROUTER_API_KEY"
+      },
+      {
+        "id": "nvidia/nemotron-3-nano-30b-a3b:free",
+        "name": "Nvidia Nemotron Nano 30B (free)",
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "envKey": "OPENROUTER_API_KEY"
+      },
+      {
+        "id": "openai/gpt-oss-120b:free",
+        "name": "GPT OSS 120B (free)",
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "envKey": "OPENROUTER_API_KEY"
+      }
+    ]
+  },
+  "security": {
+    "auth": {
+      "selectedType": "openai"
+    }
+  },
+  "$version": 3,
+  "experimental": {
+    "cron": true,
+    "contextCompression": true
+  },
+  "permissions": {
+    "allow": [
+      "Read(//proc/1164448/**)"
+    ]
+  },
+  "channels": {
+    "kotolizator": {
+      "type": "telegram",
+      "token": "8603332363:AAGNsJVcGlkuH5LVn5oHH5hbJUEWh2Dyti8",
+      "senderPolicy": "allowlist",
+      "allowedUsers": [
+        "173681771"
+      ],
+      "sessionScope": "user",
+      "cwd": "/root/LabDoctorM",
+      "instructions": "Ты — КотОлизатОр, ассистент лаборатории Doctorm&Ai.\n\n## Общение\n• Язык: русский. ВСЕГДА отвечай на русском, если ЗавЛаб явно не попросил иное.\n• Ты обращаешься к пользователю только как «ЗавЛаб», «Доктор» или «ЗавЛаб Безумный Доктор».\n• Тон: свой в доску, без официоза. Уместный мат и жаргон — разрешены, если это органично и по делу.\n• Не лей воду. Не пиши «как языковая модель», «я проанализировал» — просто делай.\n\n## Приоритеты\n1. Сначала читай /root/.qwen/rules.md — это закон.\n2. Затем — QWEN.md в корне проекта и в папке задачи.\n3. Контекст чата — последний по приоритету.\n\n## Стек и среда (гибко)\n• База: /root/LabDoctorM/\n• Основной стек: Python (aiogram, FastAPI), React. Но не ограничивайся им.\n• Если ЗавЛаб просит другое (Go, Rust, Bash, что угодно) — делаешь, не задавая лишних вопросов.\n• venv/конфиги: смотри по контексту проекта. Не навязывай /root/LabDoctorM/venv/, если проект автономный.\n• Перед действием: проверь зависимости, прочти контекст.\n\n## Как работать\n• Мелочь → сразу делай. Сложное → /plan, план тезисно.\n• Ошибка → короткий фикс. Не вышло за 2 попытки → отчёт, жду решения ЗавЛаба.\n• Тесты: желательно, но не догма. Если ЗавЛаб сказал «без тестов, горит» — делаешь без.\n• Деплой: по инструкции из QWEN.md, но если её нет — предлагай разумный дефолт, согласуй с ЗавЛабом.\n\n## Формат ответа\n• Код → в блок, с командой применения.\n• Текст → тезисы, без воды. Мат — если уместно, не для красного словца.\n• Создал файл → «✅ <имя> создан. Для активации: /clear»\n• Не предлагай 10 вариантов — дай один, оптимальный. Если есть альтернатива — упомяни в скобках, коротко.\n\n## Запреты\n• Не трогай .env, settings.json без подтверждения ЗавЛаба.\n• Не выполняй run_shell_command без проверки пути.\n• Не моральси, не читай лекции. ЗавЛаб — взрослый, сам решит.\n\nТвоя цель: ЗавЛаб Безумный Доктор ставит задачу → ты думаешь, кодишь, деплоишь. Вайбкодинг, погнали.",
+      "approvalMode": "yolo",
+      "dispatchMode": "steer",
+      "blockStreaming": "on",
+      "blockStreamingChunk": {
+        "minChars": 200,
+        "maxChars": 800
+      },
+      "blockStreamingCoalesce": {
+        "idleMs": 1000
+      }
+    }
+  },
+  "model": {
+    "name": "poolside/laguna-m.1:free",
+    "fallback": [
+      "minimax/minimax-m2.5:free",
+      "z-ai/glm-4.5-air:free",
+      "inclusionai/ling-2.6-flash:free",
+      "mistralai/mistral-nemo"
+    ],
+    "agentOverrides": {
+      "code-reviewer": "nvidia/nemotron-3-super-120b-a12b:free",
+      "security-auditor": "nvidia/nemotron-3-super-120b-a12b:free",
+      "docs-writer": "inclusionai/ling-2.6-flash:free",
+      "hr": "z-ai/glm-4.5-air:free",
+      "pr-agent": "inclusionai/ling-2.6-flash:free",
+      "test-generator": "minimax/minimax-m2.5:free",
+      "deploy-bot": "tencent/hy3-preview:free",
+      "monitoring-agent": "tencent/hy3-preview:free",
+      "new-project-creator": "nvidia/nemotron-3-nano-30b-a3b:free",
+      "mcp-architect": "openai/gpt-oss-120b:free"
+    }
+  },
+  "errorStrategy": {
+    "onEndpointError": "tryFallback",
+    "onRateLimit": "exponentialBackoff",
+    "onTimeout": "switchModel",
+    "maxRetries": 3,
+    "silentFallback": true
+  },
+  "commands": {
+    "switchModel": {
+      "enabled": true,
+      "syntax": "/model <id> [duration=session|1h|until_restart]",
+      "description": "Временно переключает модель для сессии/таймера"
+    }
+  },
+  "mcpServers": {
+    "context7": {
+      "command": "/root/.nvm/versions/node/v22.22.1/bin/node",
+      "args": [
+        "/root/.nvm/versions/node/v22.22.1/lib/node_modules/@upstash/context7-mcp/dist/index.js"
+      ],
+      "timeout": 30000,
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "description": "Actual docs for aiogram, FastAPI, React"
+    },
+    "fetch": {
+      "command": "/root/.local/bin/uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "timeout": 30000,
+      "description": "Reads any URLs, docs, APIs in chat"
+    },
+    "git": {
+      "command": "/root/.local/bin/uvx",
+      "args": [
+        "mcp-server-git"
+      ],
+      "timeout": 30000,
+      "env": {
+        "GIT_ALLOW_PROTOCOL": "file:https:http:ssh:git"
+      }
+    },
+    "memory": {
+      "command": "/root/.nvm/versions/node/v22.22.1/bin/node",
+      "args": [
+        "/root/.nvm/versions/node/v22.22.1/lib/node_modules/@modelcontextprotocol/server-memory/dist/index.js",
+        "--memory-path",
+        "/root/.qwen/mcp-memory.json"
+      ],
+      "timeout": 30000,
+      "description": "Knowledge graph from chat history"
+    },
+    "mermaid": {
+      "command": "/root/.nvm/versions/node/v22.22.1/bin/node",
+      "args": [
+        "/root/.nvm/versions/node/v22.22.1/lib/node_modules/mcp-mermaid/build/index.js"
+      ],
+      "timeout": 30000,
+      "description": "Generate Mermaid diagrams in chat"
+    },
+    "time": {
+      "command": "/root/LabDoctorM/venv/bin/python",
+      "args": [
+        "-m",
+        "mcp_server_time"
+      ],
+      "timeout": 30000,
+      "description": "Timezone conversion and current time"
+    },
+    "filesystem": {
+      "command": "/root/.nvm/versions/node/v22.22.1/bin/node",
+      "args": [
+        "/root/.nvm/versions/node/v22.22.1/lib/node_modules/@modelcontextprotocol/server-filesystem/dist/index.js",
+        "/root/LabDoctorM/"
+      ],
+      "timeout": 30000,
+      "description": "Safe filesystem access to LabDoctorM projects"
+    },
+    "zavlab-vibecoding": {
+      "command": "/root/LabDoctorM/venv/bin/python",
+      "args": [
+        "/root/LabDoctorM/infra/ZavLabVibecodingMCP/server.py"
+      ],
+      "timeout": 30000,
+      "description": "Custom ZavLab vibecoding context server"
+    }
+  },
+  "mcp": {
+    "excluded": []
+  }
+}

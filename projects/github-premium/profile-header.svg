@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="400" viewBox="0 0 1584 400">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A0A2A"/>
+      <stop offset="50%" stop-color="#1A0A3A"/>
+      <stop offset="100%" stop-color="#2A0A4A"/>
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1584" height="400" fill="url(#headerGrad)"/>
+  
+  <!-- LabDoctorM title -->
+  <text x="792" y="120" text-anchor="middle" fill="#FFFFFF" font-size="64" font-weight="bold" font-family="Arial, sans-serif">LabDoctorM</text>
+  <text x="792" y="170" text-anchor="middle" fill="#00FFFF" font-size="24" font-family="monospace">Automation Laboratory</text>
+  
+  <!-- Bot icons row -->
+  <g transform="translate(400,280)">
+    <!-- VPN Daemon bot -->
+    <g transform="translate(0,0)">
+      <rect x="0" y="0" width="60" height="60" rx="8" fill="#00FFFF" opacity="0.8"/>
+      <text x="30" y="38" text-anchor="middle" fill="#000000" font-size="28" font-weight="bold">📡</text>
+      <text x="30" y="80" text-anchor="middle" fill="#FFFFFF" font-size="14">VPN</text>
+    </g>
+    <!-- Protocol bot -->
+    <g transform="translate(120,0)">
+      <rect x="0" y="0" width="60" height="60" rx="8" fill="#8A2BE2" opacity="0.8"/>
+      <text x="30" y="38" text-anchor="middle" fill="#FFFFFF" font-size="28" font-weight="bold">📖</text>
+      <text x="30" y="80" text-anchor="middle" fill="#FFFFFF" font-size="14">Protocol</text>
+    </g>
+    <!-- LLM Evangelist bot -->
+    <g transform="translate(240,0)">
+      <rect x="0" y="0" width="60" height="60" rx="8" fill="#39FF14" opacity="0.8"/>
+      <text x="30" y="38" text-anchor="middle" fill="#000000" font-size="28" font-weight="bold">🤖</text>
+      <text x="30" y="80" text-anchor="middle" fill="#FFFFFF" font-size="14">LLM</text>
+    </g>
+  </g>
+</svg>

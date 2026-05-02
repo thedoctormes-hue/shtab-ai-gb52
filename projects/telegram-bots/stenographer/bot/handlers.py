@@ -25,7 +25,7 @@ async def download_file_custom(bot, file_path, dest_path, timeout=300):
 
 @router.message(F.command("start"))
 async def cmd_start(message: types.Message):
-    await message.answer("🎙️ Готов. Жду голосовое или файл (до 50 МБ).")
+    await message.answer("🎙️ Готов. Жду голосовое или файл (до 20 МБ).")
 
 @router.message(F.voice | F.document | F.audio)
 async def handle_audio(message: types.Message):
@@ -60,6 +60,11 @@ async def handle_audio(message: types.Message):
         await download_file_custom(message.bot, file_info.file_path, tmp_path)
         logger.info(f"✅ Файл скачан: {tmp_path}")
 
+        # Проверка размера файла (Telegram limit 20МБ)
+        file_size = file.file_size or 0
+        if file_size > config.MAX_FILE_SIZE:
+            await message.answer("❌ Файл > 20 МБ. Telegram limit.\n\nДля длинных записей (>1 часа) используй: /upload@dropbox или разбей на части."); return
+        
         valid, error = files.check_file_size(tmp_path, config.MAX_FILE_SIZE)
         if not valid:
             await message.answer(f"❌ {error}"); return

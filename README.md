@@ -3,7 +3,7 @@
 
 <div align="center">
 
-![LabDoctorM Banner](https://raw.githubusercontent.com/thedoctormes-hue/shtab-ai-gb52/main/projects/github-premium/profile-header.png)
+![LabDoctorM Banner](https://raw.githubusercontent.com/thedoctormes-hue/shtab-ai-gb52/master/projects/github-premium/profile-header.png)
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
@@ -111,7 +111,7 @@ npm run build && rsync -av dist/ /var/www/<project>/
 
 ## 🔄 CI/CD
 
-- **Автоматический деплой** при push в `main` ветку
+- **Автоматический деплой** при push в `master` ветку
 - **GitHub Actions** проверяют код на каждый PR
 - **Docker-ready** для масштабирования
 

@@ -17,6 +17,8 @@ jobs:
       - name: Check for large files
         run: |
           git ls-files | xargs ls -la 2>/dev/null | awk '$5 > 5242880 {print $0}' && exit 1 || echo "No large files found"
+      - name: Python syntax check
+        run: python3 -m py_compile $(find . -name "*.py" -not -path "./venv/*" -not -path "./.venv/*" | head -10) || true
 
   security:
     runs-on: ubuntu-latest
@@ -25,3 +27,6 @@ jobs:
       - name: Check for secrets in code
         run: |
           git diff --cached --name-only --diff-filter=ACM | xargs grep -l 'TOKEN\|SECRET\|PASSWORD\|API_KEY' 2>/dev/null || echo "No secrets detected"
+      - name: Check for private keys
+        run: |
+          find . -name "*.pem" -o -name "*.key" -not -path "./venv/*" -not -path "./.venv/*" | head -5 || echo "No private keys found"

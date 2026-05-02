@@ -1,0 +1,37 @@
+# GitHub Pages Configuration
+title: LabDoctorM
+description: >- # this means to ignore newlines until "baseurl:"
+  Клинико-диагностическая лаборатория | Laboratory Doctor
+  Автоматизация инфраструктуры и бизнес-процессов
+baseurl: "" # the subpath of your site, e.g. "/blog"
+url: "https://labdoctorm.github.io" # the base hostname & protocol for your site
+github_username: thedoctormes-hue
+theme: minima
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Plugins
+plugins:
+  - jekyll-feed
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Navigation
+header_pages:
+  - index.md
+  - projects.md

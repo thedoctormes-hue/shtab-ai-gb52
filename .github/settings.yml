@@ -1,0 +1,27 @@
+# Repository Settings (for GitHub UI)
+repository:
+  name: shtab-ai-gb52
+  description: "🏥 LabDoctorM - Клинико-диагностическая лаборатория | Автоматизация инфраструктуры"
+  homepage: https://shtab-ai.ru
+  topics:
+    - laboratory
+    - automation
+    - telegram-bot
+    - vpn
+    - ai
+    
+# Social preview (banner image)
+# Use: .github/banner.svg
+
+# Features
+features:
+  issues: true
+  projects: true
+  wiki: true
+  discussions: false
+
+# Merge settings
+merge_settings:
+  allow_merge_commit: false
+  allow_squash_merge: true
+  allow_rebase_merge: true

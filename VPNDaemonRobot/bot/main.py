@@ -13,7 +13,7 @@ from aiohttp import web
 import shlex
 
 # Load .env from project root
-BASE_DIR = Path(__file__).resolve().parents[2]
+BASE_DIR = Path(__file__).resolve().parents[1]
 load_dotenv(BASE_DIR / '.env')
 
 # Load config from environment

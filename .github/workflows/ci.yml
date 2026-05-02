@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for large files
+        run: |
+          git ls-files | xargs ls -la 2>/dev/null | awk '$5 > 5242880 {print $0}' && exit 1 || echo "No large files found"
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for secrets in code
+        run: |
+          git diff --cached --name-only --diff-filter=ACM | xargs grep -l 'TOKEN\|SECRET\|PASSWORD\|API_KEY' 2>/dev/null || echo "No secrets detected"

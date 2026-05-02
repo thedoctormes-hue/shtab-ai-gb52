@@ -1,0 +1,18 @@
+[
+  {
+    "id": "warsaw_vless_10086",
+    "server": "185.138.90.150",
+    "port": 10086,
+    "protocol": "vless",
+    "reality": {
+      "publicKey": "2GHw814dHN1bdgYrdl_oWFBzDmctPwzyl00B8Klk1XQ",
+      "shortId": "a1b2c3d4",
+      "serverName": "www.microsoft.com",
+      "fingerprint": "chrome"
+    },
+    "active": false,
+    "success_count": 0,
+    "last_check": 1777670399.090138,
+    "alive": true
+  }
+]

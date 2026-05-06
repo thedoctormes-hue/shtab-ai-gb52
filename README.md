@@ -12,6 +12,9 @@
 ```
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Telegram](https://img.shields.io/badge/Telegram-@DoctorMES-26A5E4?style=for-the-badge&logo=telegram)](https://t.me/DoctorMES)
+[![Email](https://img.shields.io/badge/Email-thedoctormes@gmail.com-EA4335?style=for-the-badge&logo=gmail)](mailto:thedoctormes@gmail.com)
+[![Phone](https://img.shields.io/badge/Phone-+79032749274-25D366?style=for-the-badge&logo=whatsapp)](tel:+79032749274)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![aiogram](https://img.shields.io/badge/aiogram-3.0%2B-2CA5E0?logo=telegram&logoColor=white)](https://docs.aiogram.dev/)
 [![React](https://img.shields.io/badge/React-18%2B-61DAFB?logo=react&logoColor=black)](https://react.dev/)
@@ -141,7 +144,7 @@ npm run build && rsync -av dist/ /var/www/<project>/
 | 📱 Канал | 🔗 Ссылка |
 |:---|:---:|
 | 🌐 Сайт | [shtab-ai.ru](https://shtab-ai.ru) |
-| 💬 Telegram | [@LabDoctorM](https://t.me/LabDoctorM) |
+| 💬 Telegram | [@DoctorMES](https://t.me/DoctorMES) |
 | 🐙 GitHub | [@thedoctormes-hue](https://github.com/thedoctormes-hue) |
 
 ---

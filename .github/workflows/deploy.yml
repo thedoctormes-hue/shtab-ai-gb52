@@ -24,19 +24,19 @@ jobs:
       url: https://thedoctormes-hue.github.io/shtab-ai-gb52/
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: './landing'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   status-badge:
     runs-on: ubuntu-latest
@@ -44,3 +44,4 @@ jobs:
     steps:
       - name: Update site status badge
         run: echo "Site deployed successfully"
+

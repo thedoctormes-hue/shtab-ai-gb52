@@ -24,7 +24,7 @@ jobs:
       url: https://thedoctormes-hue.github.io/shtab-ai-gb52/
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

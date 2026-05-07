@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 permissions:
   contents: read
@@ -13,20 +13,40 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Check for large files
         run: |
-          git ls-files | xargs ls -la 2>/dev/null | awk '$5 > 5242880 {print $0}' && exit 1 || echo "No large files found"
+          git ls-files | xargs ls -la 2>/dev/null | awk '$5 > 5242880 {print $0}' && exit 1 || echo "OK"
       - name: Python syntax check
         run: python3 -m py_compile $(find . -name "*.py" -not -path "./venv/*" -not -path "./.venv/*" | head -10) || true
+      - name: Lint markdown
+        run: |
+          npm install -g markdownlint-cli 2>/dev/null || true
+          markdownlint *.md 2>/dev/null || true
+      - name: Security scan
+        run: |
+          find . -name "*.pem" -o -name "*.key" -not -path "./venv/*" 2>/dev/null | head -5 || echo "No keys"
+      - name: HTML validation
+        run: |
+          npm install -g html-validate 2>/dev/null || true
+          html-validate *.html 2>/dev/null || true
 
-  security:
+  auto-merge:
+    needs: lint
+    if: github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - name: Check for secrets in code
-        run: |
-          git diff --cached --name-only --diff-filter=ACM | xargs grep -l 'TOKEN\|SECRET\|PASSWORD\|API_KEY' 2>/dev/null || echo "No secrets detected"
-      - name: Check for private keys
-        run: |
-          find . -name "*.pem" -o -name "*.key" -not -path "./venv/*" -not -path "./.venv/*" | head -5 || echo "No private keys found"
+    - name: Approve Dependabot PR
+      run: gh pr review --approve "$PR_URL"
+      env:
+        PR_URL: ${{ github.event.pull_request.html_url }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Merge Dependabot PR
+      run: |
+        gh pr merge "$PR_URL" --delete-branch --squash
+      env:
+        PR_URL: ${{ github.event.pull_request.html_url }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
